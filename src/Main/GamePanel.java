@@ -1,5 +1,7 @@
 package Main;
 
+import Entity.Player;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -31,6 +33,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //External classes
     public KeyHandler keyHandler = new KeyHandler(this);
+    public Player player = new Player(this,keyHandler);
 
     //Game states
     public int gameState = 0;
