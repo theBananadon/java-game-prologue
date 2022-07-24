@@ -1,7 +1,9 @@
 package Entity;
 
 import Main.GamePanel;
+import Main.UtilityTool;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -57,9 +59,22 @@ public class Entity {
 
 
 
+    public Entity(GamePanel gp){
+        this.gp = gp;
+    }
 
 
+    public BufferedImage setUp(String imagePath, int width, int height){
+        UtilityTool utilityTool = new UtilityTool();
+        BufferedImage scaledImage = null;
 
-
+        try{
+            scaledImage = ImageIO.read(getClass().getResourceAsStream(imagePath + ".png"));
+            scaledImage = utilityTool.scaleImage(scaledImage, width, height);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return scaledImage;
+    }
 
 }
